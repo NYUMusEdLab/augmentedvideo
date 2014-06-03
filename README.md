@@ -1,7 +1,4 @@
-augmentedvideo
-==============
-
-#MusEDLab Augmented Video Web Interface Template
+#NYU MusEDLab Augmented Video Web Interface Template
 
 ## Intro
 Add intro here.
