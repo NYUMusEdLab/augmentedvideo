@@ -1,0 +1,258 @@
+`body {
+	margin: 1px;
+	cursor: default;
+}
+
+img {
+	position:absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+noscript {
+	z-index: 1000000;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: blue;
+	color: white;
+	text-align: center;
+	line-height: 400px;
+	font-family: sans-serif;
+	font-size: 30px;
+}
+
+#titlebar{
+	position: relative;
+	width: 955px;
+	height: 110px;
+	background-color: #FFF;
+	opacity: 0.9;
+	top : 5px;
+	z-index: 1;
+}
+
+#titlebar a img{
+	position: relative;
+	opacity: 1;
+	width: 950px;
+	height: 98px;
+	top: 7px;
+	z-index: 3;
+}
+
+#container{
+	position:absolute;
+	left: 5;
+	top: 0;
+	margin-top: 1px;
+	margin-left: 1px;
+	width: 950px;
+	height: 720px;
+	background-color: #ffffff;
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+}
+
+#loading {
+	width: 100%; /* 970px; */
+	height: 100%; /* 550px; */
+	opacity: .95;
+	background-color: #CCCCCF;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1000;
+}
+
+
+#loadingText{
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	width: 100%;
+	height: 46px;
+	margin-top: -23px;
+	font-family: sans-serif;
+	font-size: 46px;
+	color: white;
+	text-align: center;
+	z-index: 1001;
+	opacity: 1;
+}
+
+#container * {
+	position:absolute;
+	cursor: pointer;
+}
+
+#credits {
+	position: relative;
+	top: 455px;
+	font-family: sans-serif;
+	font-size: 10px;
+	color: black;
+	text-align: right;
+	z-index: 10;
+}
+
+#Gb4{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#Ab4{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#Bb4{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#Db5{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#Eb5{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#Gb5{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#Ab5{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#Bb5{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#B5{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#Db6{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#L{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#U{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#R{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#D{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}	
+
+#S{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#W{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#A{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#SS{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#DD{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}	
+
+#F{	
+	height:128px;
+	width:323px;
+	left:512px;
+	top:378px;
+}
+
+#A:hover #A_hover{
+	opacity: 1;
+}
+
+#A:active #A_hover{
+	opacity: 0;
+}
+
+#A_hover{	
+	width: 92px;
+	height: 77px;
+	top: 250px;
+	right: 10px;
+	background-image: url("http://makeymakey.com/instAssets/images/piano_click_hover.png");
+	opacity: 0;
+}

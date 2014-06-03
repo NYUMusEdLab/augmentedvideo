@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- 
+		Code adapted from a SITE BY YOTAM MANN
+		yotammann.info
+	 -->
+	<title>Virtual Chamber Music - Pentatonic Piano Duet</title>
+	<!--dependencies-->
+	<script src="./js/jquery-1.10.2.min.js"></script>
+	<script src="./js/modernizr.custom.js"></script>
+	<script src='./js/soundmanager2.min.js'></script>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="./piano.css">
+</head>
+<body>
+	<noscript>
+		Please enable javascript for this page to work
+	</noscript>
+	<img src="./media/musedlablogo.png" height=1 width=1>
+	<div id='titlebar'>
+		<a id='icon' href="http://www.chambermusicdetroit.org"><img src='./media/logo2.png'/ width=1270></a>
+	</div>
+	<div id="container">
+		<video width="950" height="540" controls loop volume="0.6">
+  			<source src="media/piano.mp4" type="video/mp4">
+  			<source src="media/piano.m4v" type="video/m4v">
+				Your browser does not support the video tag.
+		</video>
+        <div id="Gb4"></div>
+		<div id="Ab4"></div>
+		<div id="Bb4"></div>
+		<div id="Db5"></div>
+		<div id="Eb5"></div>
+		<div id="Gb5"></div>
+		<div id="Ab5"></div>
+		<div id="Bb5"></div>
+		<div id="B5"></div>
+		<div id="Db6"></div>
+		<div id="L"></div>
+		<div id="U"></div>
+		<div id="R"></div>
+		<div id="D"></div>
+		<div id="S"></div>
+		<div id="W"></div>
+		<div id="A"></div>
+		<div id="SS"></div>
+		<div id="DD"></div>
+		<div id="F"></div>
+		</div>
+	</div>
+	<div id="credits" text-align=center>
+		<center><font size="+1">Press the 'z' through '/' keys on the bottom row of your computer keyboard to play along with the video.<p>&nbsp;</font>
+		</center>
+	</div>
+	<div id="credits" text-align=center>
+		<center>Music composed and performed by <a href="http://www.chambermusicdetroit.org/Steve"><font color=black>Steve Wogaman</font></a> ... <b>and YOU!</b><p>Designed by <a href="http://twitter.com/alexruthmann/"><font color=black>@alexruthmann</font></a> at the <a href="http://steinhardt.nyu.edu/music/"><font color=black>NYU Steinhardt</font></a> <a href="http://www.alexruthmann.com/blog1/"><font color=black>Music Experience Design Lab</font></a>. HTML 5 web audio code adapted from <a href="http://yotammann.com"><font color=black>Yotam Mann</font></a>.<p>
+		<i><a href="http://www.makeymakey.com/"><font color=black>MaKey MaKey</font></a> users: you can play 10 different piano notes, using w, a, s, d, f, left, up, right, down and space.</i></center>
+	</div>
+	<div id="loading">
+		<div id="loadingText">Loading...</div>
+	</div>
+	<!--application-->
+	<script type="text/javascript">
+		/*
+			maps note names to image and audio namess
+		*/
+		var KEYMAP = {
+			"Gb4" : {  
+				audio : "gb4",
+				image : "pianogb4",
+				keyCode : 90
+			},
+			"Ab4" : {
+				audio : "ab4",
+				image : "pianoab4",
+				keyCode : 88
+			},
+			"Bb4" : {
+				audio : "bb4",
+				image : "pianobb4",
+				keyCode : 67
+			},
+			"Db5" : {
+				audio : "db5",
+				image : "pianodb5",
+				keyCode : 86
+			},
+			"Eb5" : {
+				audio : "eb5",
+				image : "pianoeb5",
+				keyCode : 66
+			},
+			"Gb5" : {
+				audio : "gb5",
+				image : "pianogb5",
+				keyCode : 78 
+			},
+			"Ab5" : {
+				audio : "ab5",
+				image : "pianoab5",
+				keyCode : 77
+			},
+			"Bb5" : {
+				audio : "bb5",
+				image : "pianobb5",
+				keyCode : 188
+			},
+			"B5" : {
+				audio : "b5",
+				image : "pianob5",
+				keyCode : 190
+			},
+			"Db6" : {
+				audio : "db6",
+				image : "pianodb6",
+				keyCode : 191
+			},
+			"L" : {
+				audio : "gb5",
+				image : "pianogb5",
+				keyCode : 37
+			},
+			"U" : {
+				audio : "ab5",
+				image : "pianoab5",
+				keyCode : 38
+			},
+			"R" : {
+				audio : "bb5",
+				image : "pianobb5",
+				keyCode : 39
+			},
+			"D" : {
+				audio : "b5",
+				image : "pianob5",
+				keyCode : 40
+			},
+			"S" : {
+				audio : "db6",
+				image : "pianodb6",
+				keyCode : 32
+			},
+			"W" : {
+				audio : "gb4",
+				image : "pianogb4",
+				keyCode : 87
+			},
+			"A" : {
+				audio : "ab4",
+				image : "pianoab4",
+				keyCode : 65
+			},
+			"SS" : {
+				audio : "bb4",
+				image : "pianobb4",
+				keyCode : 83
+			},
+			"DD" : {
+				audio : "db5",
+				image : "pianodb5",
+				keyCode : 68
+			},
+			"F" : {
+				audio : "eb5",
+				image : "pianoeb5",
+				keyCode : 70
+			}
+		};
+	</script>
+	<script src="./js/Inst.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49474864-2', 'nyu.edu');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

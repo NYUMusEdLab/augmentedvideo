@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- 
+		Code created by Alex Ruthmann and the NYU Music Experience Design Lab - http://musedlab.org/
+		Department of Music and Performing Arts Professions
+		NYU Steinhardt - http://steinhardt.nyu.edu/music/
+		
+		Adapted from a SITE BY YOTAM MANN
+		yotammann.info
+		
+	 -->
+	<title>Virtual Manu Katche - Sledgehammer Drum Along</title>
+	<!--dependencies-->
+	<script src="./js/jquery-1.10.2.min.js"></script>
+	<script src="./js/modernizr.custom.js"></script>
+	<script src='./js/soundmanager2.min.js'></script>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="./drums.css">
+</head>
+<body>
+	<noscript>
+		Please enable javascript for this page to work
+	</noscript>
+	<img src="./media/img/musedlablogo.png" height=1 width=1>
+	<div id='titlebar'>
+		<a id='icon' href="http://www.petergabriel.com"><img src='./media/img/manukatchebanner.png'/ width=1270></a>
+	</div>
+	<div id="container">
+		<iframe width="950" height="540" src="//www.youtube.com/embed/OJWJE0x7T4Q" frameborder="0" autoplay loop=1 autohide=1 disablekb=1 enablejsapi=1 modestbranding z-index="-3" controls=0></iframe>
+		<!-- <video width="950" height="540" controls loop volume="0.6">
+  			<source src="https://www.youtube.com/watch?v=OJWJE0x7T4Q" type="video/mp4">
+  			<source src="media/piano.m4v" type="video/m4v">
+				Your browser does not support the video tag.
+		</video>-->
+        <!-- 
+        <div id="a"></div>
+		<div id="s"></div>
+		<div id="d"></div>
+		<div id="f"></div>
+		<div id="z"></div>
+		<div id="x"></div>
+		<div id="h6"></div>
+		<div id="k1"></div>
+		<div id="k2"></div>
+		<div id="k3"></div>
+		<div id="oh1"></div>
+		<div id="s1"></div>
+		<div id="s2"></div>
+		<div id="s3"></div>
+		<div id="s4"></div> 
+		-->
+		</div>
+	</div>
+	<div id="credits" text-align=center>
+		<center><b>Kick drums:</b> <b>z</b>, <b>x</b>, & <b>c</b><br>
+		<b>Hi Hats:</b> <b>g</b>, <b>h</b>, <b>j</b>, <b>k</b>, <b>l</b> & <b>;</b><br>
+		<b>Open Hi Hat:</b> <b>'</b>  &nbsp; &nbsp; &nbsp;  <b>Crash Cymbal:</b> <b>f</b><br>
+		<b>Snare:</b> <b>m</b>, <b>,</b>, <b>.</b>, & <b>/</b><p>
+		</center>
+	</div>
+	<div id="credits">
+		<center>Music from <a href="http://www.petergabriel.com"><font color=black>Peter Gabriel</font></a> ... <b>and YOU!</b><br>
+		Photo: <a href="http://jackylepage.com/"><font color=black>www.jackylepage.com</font></a>
+		<p>Designed by <a href="http://twitter.com/alexruthmann/"><font color=black>@alexruthmann</font></a> at the <a href="http://steinhardt.nyu.edu/music/">
+		<font color=black>NYU Steinhardt</font></a> <a href="http://www.alexruthmann.com/blog1/"><font color=black>Music Experience Design Lab</font></a>. 
+		HTML 5 web audio code adapted from <a href="http://yotammann.com"><font color=black>Yotam Mann</font></a>.<p>
+		</center>
+		<p><center>
+		<hr>
+		<a href="http://playwithyourmusic.org/" target="_blank"><img src="http://community.playwithyourmusic.org/uploads/default/18/5abb7bb0d6938cf2.png" width="119" height="32"> 
+		</a> is a collaboration between <a href="http://steinhardt.nyu.edu/music/" target="_blank">
+ 		<img src="http://community.playwithyourmusic.org/uploads/default/14/70f2faff6f678cc2.png" width="194" height="24"></a> and 
+ 		<a href="http://p2pu.org/" target="_blank"><img src="http://community.playwithyourmusic.org/uploads/default/15/643d25beb1bbdee2.png" width="80" height="24"></a> 
+  .</center>
+ <p>   
+	
+	</div>
+	<div id="loading">
+		<div id="loadingText">Loading...</div>
+	</div>
+	<!--application-->
+	<script type="text/javascript">
+		/*
+			maps note names to image and audio namess
+		*/
+		var KEYMAP = {
+			"a" : {  
+				audio : "Q1a",
+				image : "pianogb4",
+				keyCode : 65
+			},
+			"s" : {
+				audio : "Q1b",
+				image : "pianoab4",
+				keyCode : 83
+			},
+			"d" : {
+				audio : "Q1c",
+				image : "pianobb4",
+				keyCode : 68
+			},
+			"f" : {
+				audio : "Q1d",
+				image : "pianodb5",
+				keyCode : 70
+			},
+			"h4" : {
+				audio : "h4",
+				image : "pianoeb5",
+				keyCode : 75
+			},
+			"h5" : {
+				audio : "h5",
+				image : "pianoeb5",
+				keyCode : 76
+			},
+			"h6" : {
+				audio : "h6",
+				image : "pianoeb5",
+				keyCode : 186
+			},
+			"z" : {
+				audio : "H1a",
+				image : "pianogb5",
+				keyCode : 90 
+			},
+			"x" : {
+				audio : "H1b",
+				image : "pianoab5",
+				keyCode : 88
+			},
+			"k3" : {
+				audio : "k3",
+				image : "pianobb5",
+				keyCode : 67
+			},
+			"oh1" : {
+				audio : "oh1",
+				image : "pianob5",
+				keyCode : 222
+			},
+			"s1" : {
+				audio : "s1",
+				image : "pianodb6",
+				keyCode : 77
+			},
+			"s2" : {
+				audio : "s2",
+				image : "pianogb5",
+				keyCode : 188
+			},
+			"s3" : {
+				audio : "s3",
+				image : "pianoab5",
+				keyCode : 190
+			},
+			"s4" : {
+				audio : "s4",
+				image : "pianobb5",
+				keyCode : 191
+			}
+		};
+	</script>
+	<script src="./js/Inst.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49474864-2', 'nyu.edu');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
